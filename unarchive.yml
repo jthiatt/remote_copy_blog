@@ -1,0 +1,15 @@
+---
+- name: Unarchive module
+  hosts: ata_demo 
+  tasks:
+
+  - name: Create /tmp/unarchive
+    file:
+      path: /tmp/unarchive
+      state: directory
+
+  - name: Extract test.tar.gz
+    ansible.builtin.unarchive:
+      src: test.tar.gz 
+      dest: /tmp/unarchive 
+

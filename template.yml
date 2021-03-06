@@ -1,0 +1,14 @@
+---
+- name: Template module
+  hosts: ata_demo 
+  vars:
+    - ata_message: "Hello World"
+
+  tasks:
+    - name: Copy test.txt using a template
+      ansible.builtin.template:
+        src: test.txt.j2
+        dest: /tmp/text.txt
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0644'

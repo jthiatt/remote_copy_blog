@@ -1,0 +1,10 @@
+---
+- name: Get URL module
+  hosts: ata_demo 
+  tasks:
+
+    - name: Get file from file-examples-com.github.io 
+      ansible.builtin.get_url:
+        url: "https://file-examples-com.github.io/uploads/2017/02/file_example_CSV_5000.csv"
+        dest: /tmp/test.csv
+

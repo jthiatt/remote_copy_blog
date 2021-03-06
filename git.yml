@@ -1,0 +1,16 @@
+---
+- name: Git module
+  hosts: ata_demo 
+  tasks:
+
+    - name: Install git
+      yum:
+        name: git
+        state: present
+      become: true
+
+    - name: Clone the X repo 
+      ansible.builtin.git:
+        repo: https://github.com/jthiatt/tower_demo
+        dest: /tmp/tower_demo
+

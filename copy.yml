@@ -1,0 +1,13 @@
+---
+- name: Copy module
+  hosts: ata_demo 
+  tasks:
+
+    - name: Copy file
+      ansible.builtin.copy:
+        src: test.txt 
+        dest: /tmp/text.txt
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0644'
+
